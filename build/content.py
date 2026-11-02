@@ -57,6 +57,7 @@ s = open(OUT + '/guides/__a.html').read(); os.remove(OUT + '/guides/__a.html')
 s = s.replace('<a href="index.html">Guides</a>', '<a href="../guides/index.html">Guides</a><a href="index.html">Learn</a>')
 open(OUT + '/learn/index.html', 'w').write(s)
 ARTICLE_SLUGS = [a[0] for a in A]
+ARTICLE_META = {a[0]: a[5] for a in A}
 
 # ---------- Thank-you page (Stripe redirects here after payment) ----------
 thanks_body = ('<h1>Payment received. Thank you!</h1>'

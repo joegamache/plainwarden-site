@@ -58,8 +58,10 @@ for root, _, files in os.walk(OUT):
                 if fq: graph.append(fq)
             elif rel.startswith(('learn/', 'guides/')) and not rel.endswith('index.html'):
                 head = re.sub(r'\s*\|\s*PlainWarden$', '', title)
+                # Article dates come from the META header; guides keep their review date.
+                _am = ARTICLE_META.get(rel[len('learn/'):-len('.html')], {}) if rel.startswith('learn/') else {}
                 graph.append({'@type': 'Article', 'headline': head, 'description': desc, 'url': url, 'image': OG_IMG,
-                              'datePublished': '2026-10-31', 'dateModified': '2026-10-31', 'inLanguage': 'en-US',
+                              'datePublished': _am.get('published', '2026-10-31'), 'dateModified': _am.get('updated', '2026-10-31'), 'inLanguage': 'en-US',
                               'author': {'@id': BASE + '#org'}, 'publisher': ORG, 'mainEntityOfPage': url})
                 sec = 'Learn' if rel.startswith('learn/') else 'How-to guides'
                 graph.append({'@type': 'BreadcrumbList', 'itemListElement': [
