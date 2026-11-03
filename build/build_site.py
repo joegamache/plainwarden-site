@@ -104,7 +104,7 @@ E='<a href="mailto:support@plainwarden.com">support@plainwarden.com</a>'
 exec(open(os.path.join(HERE,'legal_v2.py')).read())
 exec(open(os.path.join(HERE,'guides.py')).read())
 exec(open(os.path.join(HERE,'content.py')).read())
-open(OUT+'/robots.txt','w').write('User-agent: *\nAllow: /\nSitemap: https://www.plainwarden.com/sitemap.xml\n')
+open(OUT+'/robots.txt','w').write('User-agent: *\nAllow: /\nDisallow: /portal\nDisallow: /billing\nDisallow: /checkout\nSitemap: https://www.plainwarden.com/sitemap.xml\n')
 URLS=['', 'guides/', 'sample-plan.html', 'learn/']+['guides/'+x+'.html' for x in GUIDE_SLUGS]+['learn/'+x+'.html' for x in ARTICLE_SLUGS]
 open(OUT+'/sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>https://www.plainwarden.com/'+u+'</loc></url>' for u in URLS)+'</urlset>\n')
 print(os.listdir(OUT))
