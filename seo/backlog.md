@@ -21,10 +21,10 @@ Pick the highest item not yet done. Mark items `[x]` with the PR link when merge
 - [ ] Add product-neutral screenshots or step tables where search queries show demand
 
 ## Technical / site
-- [ ] Free "WISP readiness check" (5-minute self-assessment, scores the firm, links to start a plan) — propose design to Joe first
+- [ ] Free "WISP readiness check" (5-minute self-assessment, scores the firm, links to start a plan) — propose design to the owner first
 - [ ] Glossary page (WISP, Qualified Individual, PTIN, EFIN, GLBA, Safeguards Rule, §7216)
 
-## Outreach (drafts only; Joe sends)
+## Outreach (drafts only; the owner sends)
 - [ ] Pitch: guest article for a state NATP/NAEA chapter newsletter
 - [ ] Pitch: tax-pro podcast appearance on security planning before filing season
 - [ ] Pitch: IT providers serving CPA firms (partner/referral)
