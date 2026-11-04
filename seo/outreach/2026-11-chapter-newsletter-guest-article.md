@@ -1,6 +1,6 @@
 # Pitch: guest article for a state NATP or NAEA chapter newsletter
 
-**Status:** draft for Joe. Nothing has been sent.
+**Status:** draft for the owner. Nothing has been sent.
 
 ## Before sending
 - Pick a chapter and confirm it runs a newsletter that takes outside articles. NAEA's chapter page lists no newsletter or submission contact, so its general address (info@naea.org) or a chapter leader is the likely route. Find the NATP chapter contact on the chapter's own page.

@@ -8,7 +8,7 @@ Newest first. One entry per run: date, Search Console highlights (clicks, impres
 - Monthly refresh: "Do tax preparers need a WISP?" Added Form W-12 line 11 and IR-2026-92, tightened §314.6 wording and the FTC deadline, replaced an unsourced "usually the owner".
 - Internal links: no broken links. The FTC Safeguards article had one inbound link (the Learn index), so it now gets links from the refreshed page and the new article.
 - Technical fix: article JSON-LD dates were fixed at 2026-10-31; they now come from each article's META header.
-- Outreach draft: `seo/outreach/2026-11-chapter-newsletter-guest-article.md` (Joe sends).
+- Outreach draft: `seo/outreach/2026-11-chapter-newsletter-guest-article.md` (the owner sends).
 - PR: this pull request.
 - Next: "PTIN renewal and the WISP question". Read Search Console first if reachable.
 
