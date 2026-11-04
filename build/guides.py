@@ -16,7 +16,7 @@ G.append(('two-step-login', 'Turn on two-step login',
   'For each one, open the security or sign-in settings and turn on two-step login for every user, not just yourself. In business email (Microsoft 365, Google Workspace), the administrator can require it for all accounts.',
   'Use an authenticator app or a hardware security key where offered. Text-message codes are better than nothing, but easier to intercept.',
   'Save each account\'s backup codes somewhere safe, such as your password manager or a locked drawer, so a lost phone doesn\'t lock you out.',
-  'If a system can\'t do two-step login, write down what you use instead (for example, access only from the office network) and have the Coordinator approve it.',
+  'If a system can\'t support two-step login, the FTC Safeguards Rule allows a reasonably equivalent or more secure control only if your Qualified Individual approves it in writing. A strong password alone is not equivalent. Record the control and the written approval, and plan to move off that system.',
   'Check again whenever you add a system or a person.'],
  ['Every system on your list shows two-step login on for every user.', 'Any exception is written down and approved by the Coordinator.'],
  ['16 CFR 314.4(c)(5)', 'IRS Publication 4557']))
