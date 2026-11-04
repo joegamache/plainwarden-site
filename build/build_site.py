@@ -38,7 +38,7 @@ sub('>confirmed in place<','>reported in place<')
 sub('>Six, filled in from your answers where possible','>Seven, filled in from your answers where possible')
 # merged Year One list
 old_list=re.search(r'<li>Your complete plan, Word and PDF</li>\n<li>Plan updates when.*?</li>\n</ul>',s,re.S).group(0)
-Q=' <span style="color: #4A5865">· by Mar 31, 2027</span>'
+Q=''
 items=['Your complete plan, Word and PDF',
  'Reminders when action items are due, and a tracker for gaps and items to confirm'+Q,
  'Yearly staff security training with sign-off records'+Q,
@@ -46,7 +46,7 @@ items=['Your complete plan, Word and PDF',
  'Vendor tracker and quarterly check-in emails'+Q,
  'Plan updates when your practice or the rules change, with an October PTIN-season re-review'+Q,
  'Audit-ready binder'+Q]
-s=s.replace(old_list,'\n'.join('<li>'+i+'</li>' for i in items)+'\n</ul>\n<p style="margin: 0; color: #4A5865; font-size: 14px">Year One is a preorder: features marked with a date are in development and will be available by March 31, 2027. If any isn&#39;t, you can claim a $60 refund.</p>')
+s=s.replace(old_list,'\n'.join('<li>'+i+'</li>' for i in items)+'\n</ul>\n<p style="margin: 0; color: #4A5865; font-size: 14px">Everything in Year One is ready when your plan arrives: the links to your tracker and staff training come in the same email.</p>')
 
 # --- legal review (2026-10-30): soften or substantiate marketing claims ---
 CLAIMS=[
@@ -104,7 +104,7 @@ E='<a href="mailto:support@plainwarden.com">support@plainwarden.com</a>'
 exec(open(os.path.join(HERE,'legal_v2.py')).read())
 exec(open(os.path.join(HERE,'guides.py')).read())
 exec(open(os.path.join(HERE,'content.py')).read())
-open(OUT+'/robots.txt','w').write('User-agent: *\nAllow: /\nSitemap: https://www.plainwarden.com/sitemap.xml\n')
+open(OUT+'/robots.txt','w').write('User-agent: *\nAllow: /\nDisallow: /portal\nDisallow: /billing\nDisallow: /checkout\nSitemap: https://www.plainwarden.com/sitemap.xml\n')
 URLS=['', 'guides/', 'sample-plan.html', 'learn/']+['guides/'+x+'.html' for x in GUIDE_SLUGS]+['learn/'+x+'.html' for x in ARTICLE_SLUGS]
 open(OUT+'/sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>https://www.plainwarden.com/'+u+'</loc></url>' for u in URLS)+'</urlset>\n')
 print(os.listdir(OUT))

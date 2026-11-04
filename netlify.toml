@@ -9,3 +9,36 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-Frame-Options = "DENY"
+
+# Customer-facing app links on plainwarden.com, served by n8n behind the scenes (proxy, status 200).
+# Query strings (?t=, ?k=, ?sid=) pass through to n8n unchanged.
+[[redirects]]
+  from = "/portal"
+  to = "https://jg074071.app.n8n.cloud/webhook/plainwarden-portal"
+  status = 200
+[[redirects]]
+  from = "/portal/act"
+  to = "https://jg074071.app.n8n.cloud/webhook/plainwarden-portal-act"
+  status = 200
+[[redirects]]
+  from = "/billing"
+  to = "https://jg074071.app.n8n.cloud/webhook/plainwarden-billing"
+  status = 200
+[[redirects]]
+  from = "/checkout"
+  to = "https://jg074071.app.n8n.cloud/webhook/plainwarden-checkout"
+  status = 200
+
+[[headers]]
+  for = "/portal*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+[[headers]]
+  for = "/billing"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+[[headers]]
+  for = "/checkout"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

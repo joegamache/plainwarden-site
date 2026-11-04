@@ -11,7 +11,7 @@ The build rewrites `public/`. Commit both the source change and the rebuilt `pub
 
 ## Layout
 - `build/build_site.py` — builds the home page from `build/src/Main.dc.html`, then runs the modules below.
-- `build/legal_v2.py` — Terms, Privacy, Refunds (attorney-reviewed text; don't edit without Joe).
+- `build/legal_v2.py` — Terms, Privacy, Refunds (attorney-reviewed text; don't edit without the owner).
 - `build/guides.py` — the 15 how-to guides.
 - `build/content.py` — sample plan page, `/learn/` articles, thank-you page.
 - `build/articles/<slug>.html` — one article per file, with a JSON META header.

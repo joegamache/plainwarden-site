@@ -21,12 +21,12 @@ Pick the highest item not yet done. Mark items `[x]` with the PR link when merge
 - [ ] Add product-neutral screenshots or step tables where search queries show demand
 
 ## Technical / site
-- [ ] Free "WISP readiness check" (5-minute self-assessment, scores the firm, links to start a plan) — propose design to Joe first
+- [ ] Free "WISP readiness check" (5-minute self-assessment, scores the firm, links to start a plan) — propose design to the owner first
 - [ ] Glossary page (WISP, Qualified Individual, PTIN, EFIN, GLBA, Safeguards Rule, §7216)
 - [ ] FTC Safeguards article: add that §314.6 excepts only the written part of the risk assessment, so firms under 5,000 consumers still assess risks under §314.4(b). Evidence: 16 CFR 314.4(b), 314.6; already clarified in "Do tax preparers need a WISP?" (2026-11-02).
 - [ ] Guides: JSON-LD `dateModified` is still fixed at 2026-10-31. Give guides a real reviewed date when one is next refreshed. Evidence: `build/seo.py`.
 
-## Outreach (drafts only; Joe sends)
+## Outreach (drafts only; the owner sends)
 - [ ] Pitch: guest article for a state NATP/NAEA chapter newsletter
 - [ ] Pitch: tax-pro podcast appearance on security planning before filing season
 - [ ] Pitch: IT providers serving CPA firms (partner/referral)
