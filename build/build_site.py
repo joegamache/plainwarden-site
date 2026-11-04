@@ -44,7 +44,7 @@ items=['Your complete plan, Word and PDF',
  'Yearly staff security training with sign-off records'+Q,
  'How-to guides for common fixes'+Q,
  'Vendor tracker and quarterly check-in emails'+Q,
- 'Plan updates when your practice or the rules change, with an October PTIN-season re-review'+Q,
+ 'Plan updates when you report a change, plus a yearly re-review with a regenerated Plan'+Q,
  'Audit-ready binder'+Q]
 s=s.replace(old_list,'\n'.join('<li>'+i+'</li>' for i in items)+'\n</ul>\n<p style="margin: 0; color: #4A5865; font-size: 14px">Everything in Year One is ready when your plan arrives: the links to your tracker and staff training come in the same email.</p>')
 
