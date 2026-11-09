@@ -1,9 +1,9 @@
 # Legal page content v2 (2026-10-30), revised after the pre-launch legal risk review.
-# ENTITY is accurate for today; switch to the formed-LLC line once Articles are approved.
-ENTITY_TODAY = 'PlainWarden ("PlainWarden," "we," "us"). PlainWarden LLC, a California limited liability company, is being formed; we will not accept payment until it exists, and it will be the party to every purchase.'
-UPDATED = 'November 3, 2026'
+# PlainWarden LLC formed 2026-10-31 (CA SOS B20260484885).
+ENTITY_TODAY = 'PlainWarden LLC, a California limited liability company ("PlainWarden," "we," "us").'
+UPDATED = 'November 9, 2026'
 def T(hdr,rows): return '<div class="tw"><table><tr>'+''.join('<th>'+h+'</th>' for h in hdr)+'</tr>'+''.join('<tr>'+''.join('<td>'+c+'</td>' for c in r)+'</tr>' for r in rows)+'</table></div>'
-TERMS_VERSION = '2026-11-03'
+TERMS_VERSION = '2026-11-09'
 terms=''.join([
 '<p class="muted">Version '+TERMS_VERSION+' · Last updated: '+UPDATED+'</p>',
 P('1. Agreement and acceptance','These Terms are an agreement between you and '+ENTITY_TODAY+' You accept these Terms by checking the acceptance box before you submit our questionnaire, on behalf of yourself and the business you represent. If you buy PlainWarden Year One, you also give the separate renewal consent described in section 7. Our <a href="privacy.html">Privacy Policy</a> explains how we handle information; it is a notice, not part of this agreement. Contact: '+E+'.'),
@@ -30,7 +30,7 @@ P('After 14 days','Charges are non-refundable after 14 days, except as described
 P('Cancel anytime','Use the "Manage subscription" link in your portal or any renewal email, or email '+E+'. No particular subject line is required. We confirm your cancellation by email. You keep every Plan we\'ve already delivered.'),'</div>'])
 page('refunds.html','Refund and Cancellation Policy',refunds)
 privacy=''.join(['<p class="muted">Last updated: '+UPDATED+'</p>',
-P('1. Who we are','PlainWarden (PlainWarden LLC, a California limited liability company, once formed), '+E+'.'),
+P('1. Who we are','PlainWarden LLC, a California limited liability company ("PlainWarden"), '+E+'.'),
 '<h2>2. What we collect</h2>',T(['Category','Examples','Source'],[
  ['Contact and business details','Your name, email, firm name, states where you work, staff count','You, in the questionnaire and at checkout'],
  ['Practice information','Your answers about software, devices, safeguards, vendors and procedures','You, in the questionnaire'],
