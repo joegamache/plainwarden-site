@@ -91,7 +91,6 @@ footer{{border-top:1px solid #D5DAD6;padding:24px 16px;font-size:14px;color:#4A5
 <header><div class="wrap"><a class="brand" href="index.html"><svg width="24" height="28" viewBox="0 0 28 32" aria-hidden="true"><path d="M14 1 L26 6 V15 C26 23 20.5 28.5 14 31 C7.5 28.5 2 23 2 15 V6 Z" fill="none" stroke="#1D5C47" stroke-width="2.4" stroke-linejoin="round"/><path d="M9 16 L12.5 19.5 L19.5 12" fill="none" stroke="#1D5C47" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>PlainWarden</a></div></header>
 <main><div class="wrap">
 <h1>{title}</h1>
-<p class="draft"><strong>Draft, under legal review.</strong> This page is a working draft and may change before PlainWarden opens for general sale. Questions: <a href="mailto:support@plainwarden.com">support@plainwarden.com</a>.</p>
 {body}
 </div></main>
 <footer><div class="wrap"><a href="index.html">Home</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refunds.html">Refunds</a><a href="mailto:support@plainwarden.com">support@plainwarden.com</a><p>PlainWarden is a tool to help tax and accounting firms create and maintain a Written Information Security Plan. It is not legal advice and does not certify compliance.</p></div></footer>
@@ -107,3 +106,4 @@ URLS=['', 'guides/', 'sample-plan', 'learn/']+['guides/'+x for x in GUIDE_SLUGS]
 open(OUT+'/sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>https://www.plainwarden.com/'+u+'</loc></url>' for u in URLS)+'</urlset>\n')
 print(os.listdir(OUT))
 exec(open(os.path.join(HERE,'seo.py')).read())
+exec(open(os.path.join(HERE,'ads.py')).read())
