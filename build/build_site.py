@@ -16,11 +16,10 @@ s=re.sub(r'<script src="./support.js"></script>\n','',s)
 s=s.replace('<x-dc>\n','').replace('</x-dc>\n','')
 s=re.sub(r'<script type="text/x-dc".*?</script>\n','',s,flags=re.S)
 meta=('<meta name="viewport" content="width=device-width,initial-scale=1">\n'
- '<meta name="description" content="PlainWarden builds your firm\'s Written Information Security Plan (WISP) from a 20-minute questionnaire: what you do today, what to fix with dates, and what to confirm. Word and PDF, for tax and accounting practices.">\n'
+ '<meta name="description" content="Create a WISP for your tax practice from a 20-minute questionnaire. Get an editable Word file, PDF and action plan that records safeguards and gaps.">\n'
  '<link rel="icon" href="favicon.svg" type="image/svg+xml">\n'
- '<meta property="og:title" content="PlainWarden: your written security plan in about 20 minutes">\n'
- '<meta property="og:description" content="An honest WISP for tax and accounting practices, built from how your firm actually works.">\n')
-s=s.replace('<title>PlainWarden home</title>','<title>PlainWarden | Written Information Security Plan for Tax Practices</title>\n'+meta+head.strip()+'\n<style>html{scroll-behavior:smooth}</style>')
+)
+s=s.replace('<title>PlainWarden home</title>','<title>WISP for Tax Preparers | PlainWarden</title>\n'+meta+head.strip()+'\n<style>html{scroll-behavior:smooth}</style>')
 # CTAs
 s=s.replace('href="#start"','href="'+FORM+'?plan=yearone"')
 plan_btn='href="'+FORM+'?plan=yearone" style="margin-top: auto; background: #FFFFFF; color: #15212C'
@@ -49,7 +48,7 @@ s=s.replace(old_list,'\n'.join('<li>'+i+'</li>' for i in items)+'\n</ul>\n<p sty
 
 # --- legal review (2026-10-30): soften or substantiate marketing claims ---
 CLAIMS=[
- ('Your written security plan in about 20 minutes, kept current all year.','About 20 minutes of questions. A written security plan built for your practice.'),
+ ('Your written security plan in about 20 minutes, kept current all year.','A Written Information Security Plan (WISP) built for your tax practice.'),
  ('Every paid tax preparer needs a Written Information Security Plan.','The IRS and FTC expect paid tax preparers to keep a Written Information Security Plan.'),
  ('When you renew your PTIN, you confirm you have a data security plan.','PTIN renewal reminds every preparer: you need a written data security plan.'),
  ('The IRS sample is a 29-page fill-in-the-blanks document. Here is why it is worth 15 minutes now.','The IRS sample is a long fill-in-the-blanks document. Here is why it is worth doing now.'),
@@ -104,7 +103,7 @@ exec(open(os.path.join(HERE,'legal_v2.py')).read())
 exec(open(os.path.join(HERE,'guides.py')).read())
 exec(open(os.path.join(HERE,'content.py')).read())
 open(OUT+'/robots.txt','w').write('User-agent: *\nAllow: /\nDisallow: /portal\nDisallow: /billing\nDisallow: /checkout\nSitemap: https://www.plainwarden.com/sitemap.xml\n')
-URLS=['', 'guides/', 'sample-plan.html', 'learn/']+['guides/'+x+'.html' for x in GUIDE_SLUGS]+['learn/'+x+'.html' for x in ARTICLE_SLUGS]
+URLS=['', 'guides/', 'sample-plan', 'learn/']+['guides/'+x for x in GUIDE_SLUGS]+['learn/'+x for x in ARTICLE_SLUGS]
 open(OUT+'/sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>https://www.plainwarden.com/'+u+'</loc></url>' for u in URLS)+'</urlset>\n')
 print(os.listdir(OUT))
 exec(open(os.path.join(HERE,'seo.py')).read())

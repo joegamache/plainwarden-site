@@ -35,8 +35,13 @@ for root, _, files in os.walk(OUT):
         rel = os.path.relpath(path, OUT).replace(os.sep, '/')
         s = open(path).read()
         if 'rel="canonical"' in s: continue
-        url = BASE + (rel[:-len('index.html')] if rel.endswith('index.html') else rel)
+        url = BASE + (rel[:-len('index.html')] if rel.endswith('index.html') else rel[:-len('.html')])
         title = _h.unescape((re.search(r'<title>(.*?)</title>', s, re.S) or [None, 'PlainWarden'])[1]).strip()
+        index_titles = {'learn/index.html': 'WISP Resources for Tax Preparers | PlainWarden',
+                        'guides/index.html': 'Tax Practice Security How-To Guides | PlainWarden'}
+        if rel in index_titles:
+            title = index_titles[rel]
+            s = re.sub(r'<title>.*?</title>', '<title>' + title + '</title>', s, count=1, flags=re.S)
         dm = re.search(r'<meta name="description" content="([^"]*)"', s)
         desc = _h.unescape(dm.group(1)) if dm else 'Written Information Security Plan generator for tax and accounting practices.'
         noindex = 'name="robots" content="noindex"' in s
@@ -49,11 +54,12 @@ for root, _, files in os.walk(OUT):
                  '<meta property="og:url" content="%s">' % url,
                  '<meta property="og:image" content="%s">' % OG_IMG,
                  '<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">',
+                 '<meta property="og:image:alt" content="PlainWarden: a written security plan built for your tax practice">',
                  '<meta name="twitter:card" content="summary_large_image">']
-        graph = []
+        graph = [ORG] if not noindex else []
         if not noindex:
             if rel == 'index.html':
-                graph += [ORG, {'@type': 'WebSite', 'name': 'PlainWarden', 'url': BASE, 'publisher': {'@id': BASE + '#org'}}]
+                graph += [{'@type': 'WebSite', 'name': 'PlainWarden', 'url': BASE, 'publisher': {'@id': BASE + '#org'}}]
                 fq = faq_ld(s)
                 if fq: graph.append(fq)
             elif rel.startswith(('learn/', 'guides/')) and not rel.endswith('index.html'):
@@ -68,8 +74,12 @@ for root, _, files in os.walk(OUT):
                     {'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': BASE},
                     {'@type': 'ListItem', 'position': 2, 'name': sec, 'item': BASE + rel.split('/')[0] + '/'},
                     {'@type': 'ListItem', 'position': 3, 'name': head, 'item': url}]})
-            if graph:
-                tags.append('<script type="application/ld+json">%s</script>' % json.dumps({'@context': 'https://schema.org', '@graph': graph}, separators=(',', ':')).replace('</', '<\\/'))
+        if not noindex:
+            graph.append({'@type': 'WebPage', '@id': url + '#webpage', 'url': url,
+                          'name': title, 'description': desc, 'inLanguage': 'en-US',
+                          'publisher': {'@id': BASE + '#org'}})
+            tags.append('<script type="application/ld+json">%s</script>' % json.dumps(
+                {'@context': 'https://schema.org', '@graph': graph}, separators=(',', ':')).replace('</', '<\\/'))
         s = s.replace('</head>', '\n'.join(tags) + '\n</head>', 1)
         # Related reading on articles and guides (not on index pages).
         sec = rel.split('/')[0]
@@ -77,4 +87,32 @@ for root, _, files in os.walk(OUT):
             links = ''.join('<li><a href="%s">%s</a></li>' % (h, t) for h, t in RELATED[sec] if not h.endswith(f))
             box = '<div class="box related"><h2 style="margin-top:12px">Related</h2><ul>%s</ul></div>' % links
             s = s.replace('<p class="muted">General guidance', box + '<p class="muted">General guidance', 1)
+        # Give informational visitors an immediate, clearly labelled next step.
+        if sec in RELATED and not rel.endswith('index.html'):
+            cta = ('<aside class="box" aria-label="Create your WISP"><h2>Build your practice’s WISP</h2>'
+                   '<p>Turn your answers into an editable Word plan, a PDF and an action plan. '
+                   'Review the result and implement the safeguards for your firm.</p>'
+                   '<p><a href="https://tally.so/r/bZZkz2?plan=yearone">Start your plan</a> · '
+                   '<a href="/#pricing">See pricing</a> · <a href="/sample-plan">See a sample WISP</a></p></aside>')
+            s = s.replace('<div class="box related">', cta + '<div class="box related">', 1)
+        # Use the same clean URL format as Netlify Pretty URLs, including in schema.
+        def clean_link(match):
+            href = match.group(1)
+            if not href.startswith(('https:', 'http:', 'mailto:', '#')):
+                if href.startswith('index.html'):
+                    href = './' + href[len('index.html'):]
+                else:
+                    href = re.sub(r'index\.html(?=[?#]|$)', '', href)
+                href = re.sub(r'\.html(?=[?#]|$)', '', href)
+            return 'href="' + (href or './') + '"'
+        s = re.sub(r'href="([^"]*)"', clean_link, s)
+        # Articles show their actual editorial dates instead of the guide template date.
+        if rel.startswith('learn/') and not rel.endswith('index.html'):
+            am = ARTICLE_META[rel[len('learn/'):-len('.html')]]
+            s = s.replace('last reviewed ' + GUIDES_REVIEWED,
+                          'updated <time datetime="' + am['updated'] + '">' + am['updated'] + '</time>')
+        s = s.replace('<link rel="stylesheet" href="https://fonts.googleapis.com',
+                      '<link rel="preconnect" href="https://fonts.googleapis.com">'
+                      '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">'
+                      '<link rel="stylesheet" href="https://fonts.googleapis.com') if 'rel="preconnect"' not in s else s
         open(path, 'w').write(s)
