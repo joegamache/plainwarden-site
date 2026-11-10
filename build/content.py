@@ -17,6 +17,8 @@ def site_page(fname, title, desc, body, extra_css=''):
 plan = open(SAMPLE + 'plan.html').read()
 pcss = re.search(r'<style>(.*?)</style>', plan, re.S).group(1)
 pbody = re.search(r'<body>(.*)</body>', plan, re.S).group(1)
+# The embedded document has its own heading; the host page keeps one primary heading.
+pbody = pbody.replace('<h1', '<h2').replace('</h1>', '</h2>')
 scoped = ''.join('.paper ' + sel.strip().replace(',', ',.paper ') + '{' + rule + '}' for sel, rule in re.findall(r'([^{}]+)\{([^}]*)\}', pcss))
 scoped = scoped.replace('.paper body', '.paper')
 extra = scoped + '.paper{background:#fff;border:1px solid #D5DAD6;border-radius:6px;padding:28px 32px;margin:18px 0 28px;overflow-x:auto;box-shadow:0 1px 3px rgba(0,0,0,.06)}@media(max-width:600px){.paper{padding:18px 14px}}.shot{width:100%;height:auto;border:1px solid #D5DAD6;border-radius:6px;display:block;margin:12px 0}.cta{display:inline-block;background:#1D5C47;color:#fff!important;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:6px;margin:6px 10px 6px 0}.cta.sec{background:#fff;color:#1D5C47!important;border:1px solid #1D5C47}'
