@@ -2,6 +2,15 @@
 
 Newest first. One entry per run: date, Search Console highlights (clicks, impressions, top queries, new pages indexed), what was proposed (PR link), what's next.
 
+## 2026-11-09 — requested technical, intent and conversion audit
+- Existing project retained; production crawl found 24/24 sitemap pages returning 200, working HTTPS/apex redirects and a genuine 404.
+- Search Console: unauthenticated landing page only; no verified clicks, impressions, indexing or Core Web Vitals. PageSpeed API returned quota exhaustion (429).
+- Proposed: clean canonical/OG/schema/internal/sitemap URLs; remove duplicate social metadata; clearer homepage WISP title/H1 and hub titles; article/guide start/pricing links; real article updated dates; primary source links and precise small-firm/consent wording; one sample-page H1; font preconnects.
+- Target intents: WISP for tax preparers, WISP checklist, FTC Safeguards Rule and the fewer-than-5,000-consumers exception.
+- Validation: build and build/check_seo.py pass (28 HTML pages / 24 indexable URLs); 390px browser checks pass on homepage, FTC article and sample. Tally entry opens; no forms/payments submitted.
+- GitHub connector/direct Git upload were unavailable. Owner signed into the browser; uploaded through GitHub website on a review branch. Updated against main after PR #6 merged and rebuilt to preserve its thank-you-page instructions.
+- Full findings and fact-check sources: seo/audit-2026-11-09.md. Netlify configuration, prices, checkout/form destinations, legal source text and tracking unchanged. Owner review/merge required by repository workflow.
+
 ## 2026-11-09 — weekly run
 - Search Console: not reachable (no browser tools on this scheduled cloud run), so no clicks, impressions or indexing data. Worked from the backlog.
 - Open PRs: only #3 (Terms Revision 3, held for attorney), not an SEO PR, so new work went ahead.
