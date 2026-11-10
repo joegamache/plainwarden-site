@@ -2,8 +2,8 @@
 # Tag loads on public site pages only, and never when the browser sends Global Privacy Control.
 # Purchase conversion fires on thanks.html with the order value and the Stripe session ID (dedupe).
 # Leave ADS_ID empty to ship no tag at all.
-ADS_ID = ''            # e.g. 'AW-123456789'
-ADS_LABEL = ''         # purchase conversion label, e.g. 'AbCdEfGhIjk'
+ADS_ID = 'AW-18549115727'
+ADS_LABEL = 'j8OHCICT5LUdEM-W9IxF'
 if ADS_ID:
     base = ("<script>(function(){try{if(navigator.globalPrivacyControl){return;}}catch(e){}"
             "window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};"
