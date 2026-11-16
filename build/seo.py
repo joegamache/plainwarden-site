@@ -95,6 +95,20 @@ for root, _, files in os.walk(OUT):
                    '<p><a href="https://tally.so/r/bZZkz2?plan=yearone">Start your plan</a> · '
                    '<a href="/#pricing">See pricing</a> · <a href="/sample-plan">See a sample WISP</a></p></aside>')
             s = s.replace('<div class="box related">', cta + '<div class="box related">', 1)
+        # Articles: a short, clearly labelled next step right after the intro, so ad and search
+        # visitors who arrive on a guide can start without scrolling to the end.
+        if rel.startswith('learn/') and not rel.endswith('index.html') and 'class="box topcta"' not in s:
+            ptin = '' if f == 'ptin-renewal-wisp-question.html' else ' <a href="ptin-renewal-wisp-question.html">What the PTIN renewal question asks</a>.'
+            top = ('<aside class="box topcta" aria-label="Start your WISP">'
+                   '<p><b>Renewing your PTIN for 2027?</b> Form W-12 asks whether you know paid preparers need a written information security plan.' + ptin + '</p>'
+                   '<p>PlainWarden builds yours from about 20 minutes of questions: an editable Word plan, a PDF and a ranked action plan, by email.</p>'
+                   '<p><a class="topbtn" href="https://tally.so/r/bZZkz2?plan=yearone">Build your plan</a>'
+                   '<a class="toplink" href="../sample-plan.html">See a sample plan</a><a class="toplink" href="../#pricing">Pricing</a></p></aside>')
+            s = re.sub(r'(<p class="lead">.*?</p>)', lambda m: m.group(1) + top, s, count=1, flags=re.S)
+            s = s.replace('</head>', '<style>.topcta{border-left:4px solid #1D5C47;padding:6px 20px 10px}'
+                          '.topcta p{margin:10px 0}.topbtn{display:inline-block;background:#1D5C47;color:#fff!important;'
+                          'text-decoration:none;font-weight:700;padding:11px 18px;border-radius:6px;margin:4px 16px 4px 0}'
+                          '.toplink{display:inline-block;margin:4px 16px 4px 0}</style>\n</head>', 1)
         # Use the same clean URL format as Netlify Pretty URLs, including in schema.
         def clean_link(match):
             href = match.group(1)
