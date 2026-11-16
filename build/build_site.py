@@ -107,3 +107,4 @@ open(OUT+'/sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<url
 print(os.listdir(OUT))
 exec(open(os.path.join(HERE,'seo.py')).read())
 exec(open(os.path.join(HERE,'ads.py')).read())
+exec(open(os.path.join(HERE,'attribution.py')).read())
