@@ -2,6 +2,15 @@
 
 Newest first. One entry per run: date, Search Console highlights (clicks, impressions, top queries, new pages indexed), what was proposed (PR link), what's next.
 
+## 2026-11-16 — weekly run
+- Search Console: not reachable (no browser tools on this scheduled cloud run), so no clicks, impressions or indexing data. Worked from the backlog.
+- Open PRs: none, so new work went ahead. Not the first run of the month, so no monthly refresh or outreach draft.
+- New article: Do I need a WISP if I work from home? (`/learn/wisp-for-home-based-tax-preparers.html`). Target query: "wisp work from home" / "home based tax preparer wisp" / "solo tax preparer wisp".
+- Inbound link added from "Do tax preparers need a WISP?" (its solo/home sentence). Outbound links to the Safeguards Rule, Pub 5708, checklist and PTIN articles and eight guides (encryption, two-step login, Wi-Fi, updates, retention, backups, vendors, access, tabletop).
+- Backlog: marked the Pub 5708 (#1) and PTIN (#4) articles done.
+- Checks: build OK, check_seo.py PASS (29 pages / 25 sitemap URLs), canonical and JSON-LD present, sitemap entry present, no horizontal scroll at 390px.
+- Next: "WISP template vs. a plan built from your answers". Read Search Console first if reachable.
+
 ## 2026-11-09 — requested technical, intent and conversion audit
 - Existing project retained; production crawl found 24/24 sitemap pages returning 200, working HTTPS/apex redirects and a genuine 404.
 - Search Console: unauthenticated landing page only; no verified clicks, impressions, indexing or Core Web Vitals. PageSpeed API returned quota exhaustion (429).
