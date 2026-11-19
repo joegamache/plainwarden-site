@@ -28,7 +28,7 @@ s=s.replace(plan_btn,'href="'+FORM+'?plan=plan" style="margin-top: auto; backgro
 # footer links
 for a,b in [('#terms','terms.html'),('#privacy','privacy.html'),('#refunds','refunds.html')]:
     sub('href="'+a+'"','href="'+b+'"')
-sub('<a href="terms.html" style="color: #B8C2BD">Terms</a>','<a href="sample-plan.html" style="color: #B8C2BD">Sample plan</a>\n<a href="guides/index.html" style="color: #B8C2BD">Guides</a>\n<a href="learn/index.html" style="color: #B8C2BD">Learn</a>\n<a href="terms.html" style="color: #B8C2BD">Terms</a>')
+sub('<a href="terms.html" style="color: #B8C2BD">Terms</a>','<a href="sample-plan.html" style="color: #B8C2BD">Sample plan</a>\n<a href="guides/index.html" style="color: #B8C2BD">Guides</a>\n<a href="learn/index.html" style="color: #B8C2BD">Learn</a>\n<a href="partners.html" style="color: #B8C2BD">Partners</a>\n<a href="terms.html" style="color: #B8C2BD">Terms</a>')
 sub('<a href="#pricing" style="background: #FFFFFF; color: #15212C; text-decoration: none; font-weight: 600; font-size: 17px; padding: 15px 26px; border-radius: 6px; border: 1px solid #B9C2BD; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">See pricing</a>','<a href="#pricing" style="background: #FFFFFF; color: #15212C; text-decoration: none; font-weight: 600; font-size: 17px; padding: 15px 26px; border-radius: 6px; border: 1px solid #B9C2BD; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">See pricing</a> <a href="sample-plan.html" style="background: #FFFFFF; color: #15212C; text-decoration: none; font-weight: 600; font-size: 17px; padding: 15px 26px; border-radius: 6px; border: 1px solid #B9C2BD; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">See a sample plan</a>')
 sub('<span>support@plainwarden.com</span>','<a href="mailto:support@plainwarden.com" style="color: #B8C2BD">support@plainwarden.com</a>')
 # wording fixes
@@ -93,7 +93,7 @@ footer{{border-top:1px solid #D5DAD6;padding:24px 16px;font-size:14px;color:#4A5
 <h1>{title}</h1>
 {body}
 </div></main>
-<footer><div class="wrap"><a href="index.html">Home</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refunds.html">Refunds</a><a href="mailto:support@plainwarden.com">support@plainwarden.com</a><p>PlainWarden is a tool to help tax and accounting firms create and maintain a Written Information Security Plan. It is not legal advice and does not certify compliance.</p></div></footer>
+<footer><div class="wrap"><a href="index.html">Home</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refunds.html">Refunds</a><a href="partners.html">Partners</a><a href="mailto:support@plainwarden.com">support@plainwarden.com</a><p>PlainWarden is a tool to help tax and accounting firms create and maintain a Written Information Security Plan. It is not legal advice and does not certify compliance.</p></div></footer>
 </body></html>'''
     open(OUT+'/'+fname,'w').write(doc)
 def P(head,txt): return f'<h2>{head}</h2><p>{txt}</p>'
@@ -101,8 +101,9 @@ E='<a href="mailto:support@plainwarden.com">support@plainwarden.com</a>'
 exec(open(os.path.join(HERE,'legal_v2.py')).read())
 exec(open(os.path.join(HERE,'guides.py')).read())
 exec(open(os.path.join(HERE,'content.py')).read())
+exec(open(os.path.join(HERE,'partners.py')).read())
 open(OUT+'/robots.txt','w').write('User-agent: *\nAllow: /\nDisallow: /portal\nDisallow: /billing\nDisallow: /checkout\nSitemap: https://www.plainwarden.com/sitemap.xml\n')
-URLS=['', 'guides/', 'sample-plan', 'learn/']+['guides/'+x for x in GUIDE_SLUGS]+['learn/'+x for x in ARTICLE_SLUGS]
+URLS=['', 'guides/', 'sample-plan', 'learn/', 'partners']+['guides/'+x for x in GUIDE_SLUGS]+['learn/'+x for x in ARTICLE_SLUGS]
 open(OUT+'/sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>https://www.plainwarden.com/'+u+'</loc></url>' for u in URLS)+'</urlset>\n')
 print(os.listdir(OUT))
 exec(open(os.path.join(HERE,'seo.py')).read())
