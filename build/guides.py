@@ -208,7 +208,7 @@ footer{{border-top:1px solid #D5DAD6;padding:24px 16px;font-size:14px;color:#4A5
 {body}
 <p class="muted">General guidance for small tax and accounting firms, last reviewed {GUIDES_REVIEWED}. It is not legal advice and does not certify compliance. Product menus change; check your provider's help pages for exact steps.</p>
 </div></main>
-<footer><div class="wrap"><a href="../index.html">Home</a><a href="index.html">Guides</a><a href="../terms.html">Terms</a><a href="../privacy.html">Privacy</a><a href="mailto:support@plainwarden.com">support@plainwarden.com</a></div></footer>
+<footer><div class="wrap"><a href="../index.html">Home</a><a href="index.html">Guides</a><a href="../terms.html">Terms</a><a href="../privacy.html">Privacy</a><a href="../partners.html">Partners</a><a href="mailto:support@plainwarden.com">support@plainwarden.com</a></div></footer>
 </body></html>'''
     open(OUT + '/guides/' + fname, 'w').write(doc)
 
