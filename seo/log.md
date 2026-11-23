@@ -2,6 +2,16 @@
 
 Newest first. One entry per run: date, Search Console highlights (clicks, impressions, top queries, new pages indexed), what was proposed (PR link), what's next.
 
+## 2026-11-23 — weekly run
+- Search Console: not reachable (no browser tools on this scheduled cloud run), so no clicks, impressions or indexing data. Worked from the backlog.
+- Open PRs: #13 (partner program) is not an SEO PR; last SEO PR #9 was merged, so new work went ahead. Not the first run of the month, so no monthly refresh or outreach draft.
+- New article: WISP template vs. a plan built from your answers (`/learn/wisp-template-vs-plan-from-your-answers.html`). Target query: "wisp template" / "wisp template vs" / "irs wisp template tax preparer".
+- Neutral comparison: presents the free IRS Publication 5708 sample as a good option; insurer section stays general ("what insurers ask varies; ask your broker") because no primary source covers insurer requirements.
+- Inbound links added from "Do tax preparers need a WISP?" (its template paragraph) and "IRS Publication 5708 explained" (its closing paragraph). Outbound links to the Safeguards Rule, Pub 5708, checklist and home-office articles and the tabletop, two-step login, encryption and vendor guides.
+- Backlog: marked the home-office article done (#9).
+- Checks: build OK, check_seo.py PASS (30 pages / 26 sitemap URLs), canonical and JSON-LD present, sitemap entry present, no horizontal scroll at 390px.
+- Next: "What to do if your tax practice has a data breach: first 48 hours". Read Search Console first if reachable.
+
 ## 2026-11-16 — weekly run
 - Search Console: not reachable (no browser tools on this scheduled cloud run), so no clicks, impressions or indexing data. Worked from the backlog.
 - Open PRs: none, so new work went ahead. Not the first run of the month, so no monthly refresh or outreach draft.
